@@ -3,7 +3,6 @@ import 'express-async-errors';
 import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
-import muzisRouter from './router/muzis.js';
 
 const app = express();
 
@@ -12,7 +11,10 @@ app.use(helmet());
 app.use(cors());
 app.use(morgan('tiny'));
 
-app.use('/muzis', muzisRouter);
+app.use('/muzis', (req, res, next) => {
+  console.log(req);
+  res.sendStatus(200);
+});
 
 app.use((req, res, next) => {
   res.sendStatus(404);
