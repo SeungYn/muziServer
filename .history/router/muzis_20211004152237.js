@@ -15,5 +15,5 @@ router.post('/', muzisController.create);
 
 router.put('/:id', muzisController.updateMuzi);
 
-router.delete('/:id', muzisController.removeMuzi);
+router.delete('/:id', muzis.Controller.removeMuzi);
 export default router;

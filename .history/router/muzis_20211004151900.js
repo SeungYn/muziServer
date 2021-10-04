@@ -15,5 +15,9 @@ router.post('/', muzisController.create);
 
 router.put('/:id', muzisController.updateMuzi);
 
-router.delete('/:id', muzisController.removeMuzi);
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id;
+  muzis = muzis.filter((m) => m.id !== id);
+  res.sendStatus(204);
+});
 export default router;
