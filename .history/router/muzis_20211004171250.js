@@ -1,8 +1,8 @@
 import express from 'express';
 import 'express-async-errors';
-import { body } from 'express-validator';
+import body from 'express-validator';
 import * as muzisController from '../controller/muzis.js';
-import { validate } from '../middleware/validator.js';
+import { validate } from '../middleware/validator';
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ router.get('/', muzisController.getMuzis);
 router.get('/:id', muzisController.getMuzi);
 
 //Post /musiz
-router.post('/', validateMuzi, muzisController.create);
+router.post('/', muzisController.create);
 
 router.put('/:id', muzisController.updateMuzi);
 
