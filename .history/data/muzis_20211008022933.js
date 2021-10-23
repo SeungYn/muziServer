@@ -5,6 +5,7 @@ let muzis = [
     createdAt: (Date.now() + 1).toString(),
     username: '승캉',
     name: '유승윤',
+    comments: 0,
   },
   {
     id: '2',
@@ -12,9 +13,21 @@ let muzis = [
     createdAt: Date.now().toString(),
     username: '승캉',
     name: '유승윤',
+    comments: 0,
   },
   {
     id: '3',
+    text: '안녕하세요 저는 유승윤3니다.',
+    createdAt: Date.now().toString(),
+    username: 'tmddbs',
+    name: '유승윤',
+    comments: 0,
+  },
+];
+
+let comments = [
+  {
+    id: '1',
     text: '안녕하세요 저는 유승윤3니다.',
     createdAt: Date.now().toString(),
     username: 'tmddbs',

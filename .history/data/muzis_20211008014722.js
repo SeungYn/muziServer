@@ -2,9 +2,10 @@ let muzis = [
   {
     id: '1',
     text: '안녕하세요 저는 유승윤입니다.',
-    createdAt: (Date.now() + 1).toString(),
+    createdAt: Date.now().toString(),
     username: '승캉',
     name: '유승윤',
+    comments: 0,
   },
   {
     id: '2',
@@ -12,6 +13,7 @@ let muzis = [
     createdAt: Date.now().toString(),
     username: '승캉',
     name: '유승윤',
+    comments: 0,
   },
   {
     id: '3',
@@ -19,6 +21,7 @@ let muzis = [
     createdAt: Date.now().toString(),
     username: 'tmddbs',
     name: '유승윤',
+    comments: 0,
   },
 ];
 
@@ -41,7 +44,6 @@ export async function create(text, name, username) {
     username,
     name,
     createdAt: Date.now().toString(),
-    comments: 0,
   };
 
   muzis = [muzi, ...muzis];
