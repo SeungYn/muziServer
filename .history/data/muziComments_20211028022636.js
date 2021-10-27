@@ -57,7 +57,6 @@ export async function update(muziId, created, text) {
   return comment;
 }
 
-export async function remove(created, muziId) {
+export async function remove(created) {
   comments = comments.filter((comment) => comment.createdAt !== created);
-  commentCountDown(muziId);
 }

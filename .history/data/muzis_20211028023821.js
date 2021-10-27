@@ -65,15 +65,15 @@ export async function remove(id) {
 
 export async function commentCountUp(id) {
   const muzi = muzis.find((muzi) => muzi.id === id);
-  muzi.commentsCount += 1;
+  muzi.commensCount += 1;
 }
 
 export async function commentCountDown(id) {
   const muzi = muzis.find((muzi) => muzi.id === id);
-  const count = muzi.commentsCount - 1;
+  const count = muzi.commensCount - 1;
   if (count < 0) {
-    muzi.commentsCount = 0;
+    muzi.commensCount = 0;
   } else {
-    muzi.commentsCount = count;
+    muzi.commensCount = count;
   }
 }

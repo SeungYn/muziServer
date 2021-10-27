@@ -5,7 +5,6 @@ let muzis = [
     createdAt: (Date.now() + 1).toString(),
     username: '승캉',
     name: '유승윤',
-    commentsCount: 3,
   },
   {
     id: '2',
@@ -13,7 +12,6 @@ let muzis = [
     createdAt: Date.now().toString(),
     username: '승캉',
     name: '유승윤',
-    commentsCount: 1,
   },
   {
     id: '3',
@@ -21,7 +19,6 @@ let muzis = [
     createdAt: Date.now().toString(),
     username: 'tmddbs',
     name: '유승윤',
-    commentsCount: 0,
   },
 ];
 
@@ -44,7 +41,6 @@ export async function create(text, name, username) {
     username,
     name,
     createdAt: Date.now().toString(),
-    commensCount: 0,
   };
 
   muzis = [...muzis, muzi];
@@ -61,19 +57,4 @@ export async function update(id, text) {
 
 export async function remove(id) {
   muzis = muzis.filter((m) => m.id !== id);
-}
-
-export async function commentCountUp(id) {
-  const muzi = muzis.find((muzi) => muzi.id === id);
-  muzi.commentsCount += 1;
-}
-
-export async function commentCountDown(id) {
-  const muzi = muzis.find((muzi) => muzi.id === id);
-  const count = muzi.commentsCount - 1;
-  if (count < 0) {
-    muzi.commentsCount = 0;
-  } else {
-    muzi.commentsCount = count;
-  }
 }

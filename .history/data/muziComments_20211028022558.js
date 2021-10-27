@@ -42,9 +42,8 @@ export async function create(muziId, text, name, username) {
     name,
     createdAt: Date.now().toString(),
   };
-
+  console.log(muziId);
   comments = [...comments, comment];
-  commentCountUp(muziId);
   return comment;
 }
 
@@ -57,7 +56,6 @@ export async function update(muziId, created, text) {
   return comment;
 }
 
-export async function remove(created, muziId) {
+export async function remove(created) {
   comments = comments.filter((comment) => comment.createdAt !== created);
-  commentCountDown(muziId);
 }

@@ -34,6 +34,6 @@ export async function updateComment(req, res, next) {
 
 export async function removeComment(req, res, next) {
   const { created, muziId } = req.params;
-  await muziCommentsRepository.remove(created, muziId);
+  await muziCommentsRepository.remove(created);
   res.sendStatus(204);
 }

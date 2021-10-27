@@ -70,7 +70,7 @@ export async function commentCountUp(id) {
 
 export async function commentCountDown(id) {
   const muzi = muzis.find((muzi) => muzi.id === id);
-  const count = muzi.commentsCount - 1;
+  const count = muzi.commensCount - 1;
   if (count < 0) {
     muzi.commentsCount = 0;
   } else {
