@@ -1,3 +1,4 @@
+
 let muzis = [
   {
     id: '1',
@@ -44,7 +45,7 @@ export async function create(text, name, username) {
     username,
     name,
     createdAt: Date.now().toString(),
-    commentsCount: 0,
+    commensCount: 0,
   };
 
   muzis = [...muzis, muzi];

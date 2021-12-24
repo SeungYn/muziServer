@@ -16,7 +16,7 @@ app.use(morgan('tiny'));
 
 app.use('/muzis', muzisRouter);
 app.use('/muziComments', muziCommentsRouter);
-app.use('/auth', authRouter);
+app.use('/auth', auth);
 
 app.use((req, res, next) => {
   res.sendStatus(404);

@@ -5,7 +5,6 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import muzisRouter from './router/muzis.js';
 import muziCommentsRouter from './router/muziComments.js';
-import authRouter from './router/auth.js';
 
 const app = express();
 
@@ -16,7 +15,7 @@ app.use(morgan('tiny'));
 
 app.use('/muzis', muzisRouter);
 app.use('/muziComments', muziCommentsRouter);
-app.use('/auth', authRouter);
+app.use('/auth', auth);
 
 app.use((req, res, next) => {
   res.sendStatus(404);
