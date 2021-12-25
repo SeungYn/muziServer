@@ -11,6 +11,6 @@ export async function createUser(user) {
   return created.id;
 }
 
-export async function findById(id) {
+export async function fundById(id) {
   return users.find((user) => user.id === id);
 }
