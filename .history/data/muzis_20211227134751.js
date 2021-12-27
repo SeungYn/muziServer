@@ -54,7 +54,7 @@ export async function create(text, userId) {
   const muzi = {
     id: Date.now(),
     text,
-    createdAt: new Date().toString(),
+    createdAt: new Date.now().toString(),
     userId,
     commentsCount: 0,
   };

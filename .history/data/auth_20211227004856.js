@@ -1,7 +1,7 @@
 let users = [
   {
     id: '1',
-    username: 'tmddbs',
+    uesrname: 'tmddbs',
     password: '$2b$12$4dYaf/CuyRGjQPfKdPvCGuHj5AZkgCbHe1Ome.h5bQKFFSLn.Z4cy',
     name: '유승윤',
     email: 'tmddbs@gmail.com',
@@ -14,7 +14,7 @@ export async function findByUsername(username) {
 }
 
 export async function createUser(user) {
-  const created = { ...user, id: new Date.now().toString() };
+  const created = { ...user, id: Date.now().toString() };
 
   users.push(created);
   return created.id;

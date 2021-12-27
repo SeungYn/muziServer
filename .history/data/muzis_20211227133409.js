@@ -52,9 +52,9 @@ export async function getById(id) {
 
 export async function create(text, userId) {
   const muzi = {
-    id: Date.now(),
+    id: Date.now().toString(),
     text,
-    createdAt: new Date().toString(),
+    createdAt: new Date.now().toString(),
     userId,
     commentsCount: 0,
   };
@@ -68,7 +68,7 @@ export async function update(id, text) {
   if (muzi) {
     muzi.text = text;
   }
-  return getById(muzi.id);
+  return muzi;
 }
 
 export async function remove(id) {

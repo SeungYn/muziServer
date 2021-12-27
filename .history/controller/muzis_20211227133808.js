@@ -18,8 +18,25 @@ export async function getMuzi(req, res, next) {
   }
 }
 
-export async function creaet(req, res, next) {
-  const { text, username, name } = req.body;
-  const muzi = await muzisRepository.create(text, name, username);
+export async function create(req, res, next) {
+  const { text, userId } = req.body;
+  const muzi = await muzisRepository.create(text, userId);
   res.status(201).json(muzi);
+}
+
+export async function updateMuzi(req, res, next) {
+  const id = req.params.id;
+  const text = req.body.text;
+  const muzi = await muzisRepository.update(id, text);
+  if (muzi) {
+    res.status(200).json(muzi);
+  } else {
+    res.sendStatus(404);
+  }
+}
+
+export async function removeMuzi(req, res, next) {
+  const id = req.params.id;
+  await muzisRepository.remove(id);
+  res.sendStatus(204);
 }

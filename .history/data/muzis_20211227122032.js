@@ -24,43 +24,31 @@ let muzis = [
 ];
 
 export async function getAll() {
-  return Promise.all(
-    muzis.map(async (muzi) => {
-      const { username, name, url } = await authRepository.findById(
-        muzi.userId
-      );
-      return { ...muzi, username, name, url };
-    })
-  );
+  muzis.map((muzi) => {
+    const { username, name, url } = await;
+  });
 }
 
 export async function getAllByUsername(username) {
-  return getAll().then((muzis) =>
-    muzis.filter((muzi) => muzi.username === username)
-  );
+  return muzis.filter((m) => m.username === username);
 }
 
 export async function getById(id) {
-  const found = muzis.find((m) => m.id === id);
-  if (!found) {
-    return null;
-  }
-
-  const { username, name, url } = await authRepository.findById(found.userId);
-  return { ...found, username, name, url };
+  return muzis.find((m) => m.id === id);
 }
 
-export async function create(text, userId) {
+export async function create(text, name, username) {
   const muzi = {
-    id: Date.now(),
+    id: Date.now().toString(),
     text,
-    createdAt: new Date().toString(),
-    userId,
+    username,
+    name,
+    createdAt: new Date.now().toString(),
     commentsCount: 0,
   };
 
   muzis = [...muzis, muzi];
-  return getById(muzi.id);
+  return muzi;
 }
 
 export async function update(id, text) {
@@ -68,7 +56,7 @@ export async function update(id, text) {
   if (muzi) {
     muzi.text = text;
   }
-  return getById(muzi.id);
+  return muzi;
 }
 
 export async function remove(id) {

@@ -19,8 +19,8 @@ export async function getMuzi(req, res, next) {
 }
 
 export async function create(req, res, next) {
-  const { text, username, name } = req.body;
-  const muzi = await muzisRepository.create(text, name, username);
+  const { text, userId } = req.body;
+  const muzi = await muzisRepository.create(text, userId);
   res.status(201).json(muzi);
 }
 

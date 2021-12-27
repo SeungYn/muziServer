@@ -45,22 +45,20 @@ export async function getById(id) {
   if (!found) {
     return null;
   }
-
-  const { username, name, url } = await authRepository.findById(found.userId);
-  return { ...found, username, name, url };
 }
 
-export async function create(text, userId) {
+export async function create(text, name, username) {
   const muzi = {
-    id: Date.now(),
+    id: Date.now().toString(),
     text,
-    createdAt: new Date().toString(),
-    userId,
+    username,
+    name,
+    createdAt: new Date.now().toString(),
     commentsCount: 0,
   };
 
   muzis = [...muzis, muzi];
-  return getById(muzi.id);
+  return muzi;
 }
 
 export async function update(id, text) {
@@ -68,7 +66,7 @@ export async function update(id, text) {
   if (muzi) {
     muzi.text = text;
   }
-  return getById(muzi.id);
+  return muzi;
 }
 
 export async function remove(id) {
